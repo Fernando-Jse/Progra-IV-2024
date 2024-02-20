@@ -1,17 +1,14 @@
 var db;
 const funcdb = ()=>{
-    let indexDB = indexedDB.open('db_sistema',1);
+    let indexDB = indexedDB.open('db_USSS002422_USSS017922_libreria',1);
     indexDB.onupgradeneeded = e=>{
         let req = e.target.result,
-            tblproducto = req.createObjectStore('productos',{keyPath:'idProducto'}),
-            tblcategoria = req.createObjectStore('categorias',{keyPath:'idCategoria'}),
-            tblcliente = req.createObjectStore('clientes',{keyPath:'idCliente'});
-        tblproducto.createIndex('idProducto','idProducto',{unique:true});
-        tblproducto.createIndex('codigo','codigo',{unique:true});
-        tblcategoria.createIndex('idCategoria','idCategoria',{unique:true});
-        tblcategoria.createIndex('codigo','codigo',{unique:true});
-        tblcliente.createIndex('idCliente','idCliente',{unique:true});
-        tblcliente.createIndex('codigo','codigo',{unique:true});
+            tblautor = req.createObjectStore('autors',{keyPath:'idAutor'}),
+            tbllibro = req.createObjectStore('libros',{keyPath:'idLibro'});
+        tbllibro.createIndex('idLibro','idLibro',{unique:true});
+        tbllibro.createIndex('codigo','codigo',{unique:true});
+        tblautor.createIndex('idAutor','idAutor',{unique:true});
+        tblautor.createIndex('codigo','codigo',{unique:true});
     };
     indexDB.onsuccess = e=>{
         db = e.target.result;
