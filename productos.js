@@ -26,7 +26,7 @@ Vue.component('componente-productos', {
             this.listar();
         },
         async eliminarProducto(idProducto){
-            if( confirm(`Esta seguro de eliminar el producto?`) ){
+            if( confirm(`Esta seguro de elimina el producto?`) ){
                 await db.productos.where("idProducto").equals(idProducto).delete();
                 this.nuevoProducto();
                 this.listar();
@@ -46,6 +46,15 @@ Vue.component('componente-productos', {
             await db.productos.bulkPut([{...this.producto}]);
             this.nuevoProducto();
             this.listar();
+            
+            /*query.onerror = e=>{
+                console.error('Error al guardar en productos', e);
+                if( e.target.error.message.includes('uniqueness') ){
+                    alertify.error(`Error al guardar en productos, codigo ${this.producto.codigo} ya existe`);
+                    return;
+                }
+                alertify.error(`Error al guardar en productos, ${e.target.error.message}`);
+            };*/
         },
         nuevoProducto(){
             this.accion = 'nuevo';
