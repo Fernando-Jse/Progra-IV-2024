@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('siu');
+    return view('welcome');
 });
 Route::get('/inicio', function () {
     return 'Pagina principal';
