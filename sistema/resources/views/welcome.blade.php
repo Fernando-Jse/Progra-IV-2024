@@ -13,6 +13,6 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>Hola desde Laraveli</h1>
+        <h1>Hola desde mundo</h1>
     </body>
 </html>
